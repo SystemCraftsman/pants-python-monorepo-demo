@@ -39,8 +39,9 @@ enable_resolves = true
 resolves = { python-default = "python-default.lock"}
 
 [python-bootstrap]
-# We search for interpreters both on the $PATH and in the `$(pyenv root)/versions` folder.
-#  If you're using macOS, you may want to leave off the <PATH> entry to avoid using the
-#  problematic system Pythons. See
-#  https://www.pantsbuild.org/docs/python-interpreter-compatibility#changing-the-interpreter-search-path.
-search_path = ["<PATH>", "<PYENV>"]
+search_path = [
+    # This will use all interpreters in `$(pyenv root)/versions`.
+    "<PYENV>",
+     # Brew usually installs Python here.
+    "/usr/local/bin",
+]
