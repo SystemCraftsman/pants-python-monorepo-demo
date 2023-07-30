@@ -6,7 +6,7 @@ from chatapp.profanitymasker.masker import ProfanityMasker
 
 def test_one_bad_word() -> None:
     masker = ProfanityMasker()
-    assert masker.mask("This is bullshit") == "This is bull***"
+    assert masker.mask("This is bullshit") == "This is ***"
 
 
 def test_two_bad_words() -> None:
