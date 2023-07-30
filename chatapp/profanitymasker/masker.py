@@ -4,7 +4,6 @@
 from __future__ import annotations
 from dataclasses import dataclass
 
-import random
 import json
 import pkg_resources
 
@@ -19,15 +18,11 @@ class UnknownPhrase(Exception):
 
 @dataclass
 class ProfanityMasker:
-    def __init__(
-            self, *, bad_words: dict[str, dict[str, str]] | None = None
-    ) -> None:
+    def __init__(self, *, bad_words: dict[str, dict[str, str]] | None = None) -> None:
         self.bad_words = (
             bad_words
             if bad_words is not None
-            else json.loads(
-                pkg_resources.resource_string(__name__, "bad_words.json")
-            )
+            else json.loads(pkg_resources.resource_string(__name__, "bad_words.json"))
         )
 
     def mask(self, content: str) -> str:
