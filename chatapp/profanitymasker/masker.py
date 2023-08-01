@@ -5,14 +5,6 @@ import json
 import pkg_resources
 
 
-class UnknownLanguage(Exception):
-    pass
-
-
-class UnknownPhrase(Exception):
-    pass
-
-
 @dataclass
 class ProfanityMasker:
     def __init__(self, *, bad_words: dict[str, dict[str, str]] | None = None) -> None:
