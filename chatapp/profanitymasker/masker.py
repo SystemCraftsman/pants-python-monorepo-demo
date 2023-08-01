@@ -4,6 +4,7 @@ from dataclasses import dataclass
 import json
 import pkg_resources
 
+
 @dataclass
 class ProfanityMasker:
     def __init__(self, *, bad_words: dict[str, dict[str, str]] | None = None) -> None:
